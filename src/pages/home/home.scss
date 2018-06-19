@@ -1,0 +1,100 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.price{
+    color:red;
+}
+.old_price{
+    text-decoration: line-through;
+}
+.sLide{
+    height: 150px;
+    width: 100%;
+    img{
+        height: 150px;
+        width: 100%;
+    }
+}
+.home-title{
+    padding: 5px 8px;
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0px 0px 0px;
+}
+.home-title:before{
+    font-size: 8px;
+    border-left: 3px solid red;
+    margin-right: 4px;
+    position: relative;
+    top:-1px;
+    content: "";
+
+}
+.plist{
+    list-style: none;
+    padding:.4rem;
+    
+    li{
+        width: 6.6rem;
+        height: 14.8rem;
+        float: left;
+        margin-right: .6rem;
+        .rec_shop_detial{
+            padding:4px 0px;
+            margin:0px;
+            height: 32px;
+            overflow: hidden;
+        }
+        img{
+            width:6rem;
+            height: 6rem;
+            display: block;
+            margin:0 auto;
+        }
+        p{
+            padding:.2rem 0px;
+            text-align: center;
+        }
+        
+    }
+}
+.slidePu{
+    ion-scroll{
+        width: 100%;
+        height: 148px;
+        overflow-x: auto;
+    }
+    .plist{
+        width:auto;
+    }
+    .rec_shop_detial{
+        font-size: 1.2rem;
+    }
+}
+
+.like ion-col{
+    border-top:1px solid #eee; 
+    border-bottom:1px solid #eee; 
+    margin-bottom:-1px;
+}
+
+.like ion-col:nth-child(2n+1){
+    border-right:1px solid #eee; 
+   
+}
+.like .hot_shop_detail{
+    height: 3.2rem;
+    overflow: hidden;
+}
+
+.like img{
+    height:15rem;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+  
+}
+.like p{
+    padding:.5rem 0px;
+}

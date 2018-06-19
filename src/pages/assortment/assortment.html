@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      分类
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="assortment">
+    <div class="assortmentLeft">
+      <ion-list >
+        <ion-item *ngFor="let item of aListLeft" (tap)="getaListRight(item['_id'])">
+            {{item.title}}
+        </ion-item>
+      </ion-list>
+    </div>
+    <div class="assortmentRight">
+        <ion-row>
+          <ion-col col-4 *ngFor="let item of aListRight" [navPush]='ShoplistPage' [navParams]="{'cid':item['_id']}">
+              <img [src]="config.apiUrl+item.pic" />
+              <p>{{item.title}}</p>
+          </ion-col>
+        </ion-row>
+    </div>
+  </div>
+</ion-content>

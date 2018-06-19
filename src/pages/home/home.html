@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar>
+    <ion-searchbar (tap)="goSearch()"></ion-searchbar>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides *ngIf="fList.length>0" class="sLide" pager loop="true" autoplay="3000" >
+    <ion-slide *ngFor="let item of fList">
+      <img [src]="config.apiUrl+item.pic"/>
+    </ion-slide>
+  </ion-slides>
+
+  <div class="home-title">
+    精品推荐
+  </div>
+
+  <div class="slidePu">
+    <ion-scroll scrollX="true">
+        <ul class="plist clearfix" [ngStyle]='{"width":rWidth}'>
+            <li *ngFor="let item of rList" [navPush]="PdetailsPage" [navParams]="{'id':item['_id']}">
+              <img [src]="config.apiUrl+item.s_pic" />
+              <div class="rec_shop_detial">{{item.title}}</div>
+              <p><span class="price">¥{{item.price}}</span><p>
+            </li>
+        </ul>
+    </ion-scroll>
+    
+  </div>
+  <div class="home-title">
+    猜你喜欢
+  </div>
+  <div class="like clearfix">
+    <ion-row>
+      <ion-col col-6 *ngFor="let item of hList" [navPush]="PdetailsPage" [navParams]="{'id':item['_id']}">
+
+        <img [src]="config.apiUrl+item.s_pic" />
+        <div class="hot_shop_detail">{{item.title}}</div>
+        <p>
+          <span class="price">¥{{item.price}}</span> 
+          <span class="old_price">¥{{item.old_price}}</span>
+        </p>
+      </ion-col>
+    </ion-row>
+  </div>
+
+</ion-content>

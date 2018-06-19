@@ -1,0 +1,20 @@
+.login{
+    padding: 10px;
+    .uimg{
+        text-align: center;
+        img{
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+        }
+    }
+    .login-in{
+        text-align: center;
+    }
+}
+.list-ios[inset]{
+    margin: 0px !important;
+}
+ion-item-divider{
+    min-height: 3px;
+}

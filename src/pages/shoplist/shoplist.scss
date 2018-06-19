@@ -1,0 +1,29 @@
+
+//列表
+.shop-search{
+    background-color: #666;
+}
+.sub-header{
+
+    height: 50px;
+    line-height: 50px;
+    position: fixed;
+    top: 62px;
+    width: 100%;
+    border-bottom:1px solid #eee;
+    display: flex;
+    z-index: 2;
+    background: #eee;
+
+    div{
+        flex: 1;
+        text-align: center;
+    }
+}
+
+.list-content{
+    margin-top: 40px!important;
+    h2{
+        font-size: 14px;
+    }
+}

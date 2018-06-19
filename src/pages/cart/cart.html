@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      购物车
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (tap)='isEnd=!isEnd'>
+        编辑
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="cartLoad" *ngIf='list.length<1 && hasData'>
+    <ion-spinner></ion-spinner>
+  </div>
+  <p *ngIf='!hasData'>您的购物车还是空空的！</p>
+
+  <dl class="cartList" *ngFor='let item of list'>
+    <dt>
+      <ion-checkbox [(ngModel)]='item.checked' (ionChange)='updateCart()'></ion-checkbox>
+      <img [src]='config.apiUrl+item.product_pic' src="assets/imgs/00.jpg" />
+    </dt>
+    <dd>
+      <h2 class="cart-title">{{item.product_title}}</h2>
+      <div class="cart-info">
+        <div class="cart-pr">
+          ￥{{item.product_price}}元
+        </div>
+        <div class="cart-num">
+          <div class="input-left" (tap)='decCnum(item)'>-</div>
+          <div class="input-content">
+            <input type="text" readonly="readonly" [(ngModel)]='item.product_count' name="num" id="">
+          </div>
+          <div class="input-right" (tap)='incCnum(item)'>+</div>
+        </div>
+      </div>
+    </dd>
+  </dl>
+</ion-content>
+<ion-footer>
+  <ion-toolbar *ngIf='!isEnd'>
+    <div class="all-check" (tap)='allCheck()'>
+        <ion-checkbox disabled='true' color="danger" [(ngModel)]='isChecked' ></ion-checkbox>
+        全选     
+        <strong>合计：￥{{allPrice}}元</strong>
+    </div>
+    <ion-buttons end>
+      <button ion-button color="danger" class="fontS" (tap)='payCart()'>
+        去结算
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-toolbar *ngIf='isEnd'>
+      <div class="all-check" (tap)='allCheck()'>
+          <ion-checkbox disabled='true' color="danger" [(ngModel)]='isChecked' ></ion-checkbox>
+          全选
+      </div>
+      <ion-buttons end>
+        <button ion-button color="danger" class="delCart" (tap)='delCart()'>
+          删除
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+</ion-footer>

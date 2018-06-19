@@ -1,0 +1,90 @@
+<!--
+  Generated template for the PdetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-segment [(ngModel)]="tabs">
+      <ion-segment-button value="shop">
+        商品
+      </ion-segment-button>
+      <ion-segment-button value="detail">
+        详情
+      </ion-segment-button>
+      <ion-segment-button value="discuss">
+        评论
+        </ion-segment-button>
+    </ion-segment>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <div class="p-content">
+
+        <div [ngSwitch]="tabs">
+          <div class="shops" *ngSwitchCase="'shop'">
+              <div class="p-img">
+                  <img [src]="config.apiUrl+item.pic" />           
+              </div>
+              <div class="p-info mb10">
+                  <div class="p-title">
+                      <h2>{{item.title}}</h2>
+                      <p>{{item.sub_title}}</p>
+                  </div>
+                  <div class="product-price mb10">
+                      <span class="now-price">特价：<span class="price">¥{{item.price}}</span></span> 　 　原价：<span class="old-price"> ¥{{item.old_price}}</span>  
+                  </div>
+              </div>
+
+              <div class="p-attr mb10">
+                <div #myattr id="myattr">
+                  <div *ngIf="item.attr">
+                    <div class="color" *ngFor="let attr of item.attr">
+                      <strong>{{attr.cate}}</strong>
+                      <span *ngFor="let lis of attr.list;let key=index" [ngClass]='{active:key==0}'>
+                        {{lis}}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="number">
+                  <strong>数量:</strong>
+                  <div class="cart-number">
+                      <div class="input-left" (tap)="decnum()">-</div>
+                        <div class="input-center">
+                            <input type="text"  readonly="readonly" [(ngModel)]='num' name="num" id="num" />
+                        </div>
+                        <div class="input-right" (tap)="incnum()">+</div>
+                  </div>
+                </div>
+               </div>
+               <div class="fee mb10">
+                  运费:免运费
+                </div>
+          </div>
+          <div class="details" *ngSwitchCase="'detail'">
+            <div [innerHTML]="item.content"></div>
+          </div>
+        </div>
+      </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <div class="footer-bar">
+      <div class="carticon" [navPush]='CartPage'>
+          <ion-icon name="cart"></ion-icon>
+          <p>购物车</p>
+          <ion-badge color="danger">{{cartnum}}</ion-badge>
+      </div>
+      <div class="addcart" (click)='addCart()'>加入购物车</div>
+      <div class="buy">立即购买</div>
+    </div>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,90 @@
+.cartList{
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    padding: 0px 5px;
+    dt{
+        width: 100px;
+        padding: 10px 0px;
+        display: flex;
+        align-items: center;
+        ion-checkbox{
+            width: 30px;
+            height: 30px;
+        }
+        img{
+            flex: 1;
+            width: 60px;
+            margin-right: 5px
+        }
+    }
+    dd{
+        flex: 1;
+        .cart-title{
+            font-size: 15px;
+            margin: 0px;
+            padding: 5px;
+        }
+        .cart-info{
+            display: flex;
+            .cart-pr{
+                flex: 1;
+                line-height: 28px
+            }
+            .cart-num{
+                width: 100px;
+                display: flex;
+                .input-left,.input-right{
+                    width: 28px;
+                    height: 28px;
+                    line-height: 28px;
+                    border: 1px solid #eee;
+                    background-color: #eee;
+                    text-align: center;
+                }
+                .input-content{
+                    flex: 1;
+                    input{
+                        width: 100%;
+                        height: 28px;
+                        border: 1px solid #eee;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}
+.all-check{
+    height: 44px;
+    line-height: 44px;
+    ion-checkbox {
+        position: relative;
+        top:4px
+    }
+}
+.fontS{
+    height: 3.4rem;
+    line-height: 3.4rem;
+    text-align: center;
+    color: #fff;
+    background-color: red;
+    font-size: 1.6rem;
+}
+.delCart{
+    height: 3.4rem;
+    line-height: 3.4rem;
+    padding: 0 1.4rem;
+    text-align: center;
+    color: black;
+    background-color: #fff;
+    border: 1px solid rebeccapurple;
+    font-size: 1.6rem;
+}
+.checkbox-md.checkbox-disabled, .item-md.item-checkbox-disabled ion-label{
+    opacity: 1 !important;
+}
+.cartLoad{
+    width: 2rem;
+    height: 2rem;
+    margin: 6rem auto;
+}

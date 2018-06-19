@@ -1,0 +1,29 @@
+.reg-sign{
+    display: flex;
+    padding: 10px;
+    input{
+        flex: 1;
+        border:1px solid #eee;
+        height: 36px;
+        text-indent: 5px;
+    }
+    .timer{
+        width: 100px;
+        height: 36px;
+        line-height: 36px;
+        margin-left: 5px;
+        text-align: center;
+        background: #eee;
+        color: #666;
+    }
+}
+.code-info{
+    
+    padding:5px 10px;
+}
+
+.code-sign{
+
+    color: #999;
+    font-size: 12px;
+}
